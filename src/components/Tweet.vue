@@ -9,16 +9,15 @@
     <div className="body">
       <div className="top">
         <span className="user">
-          <span className="name">Ironhack</span>
-          <span className="handle">@ironhack</span>
+          <span className="name">{{tweet.user.name}}</span>
+          <span className="handle">@{{tweet.user.handle}}</span>
         </span>
 
         <span className="timestamp">Nov 30, 2020</span>
       </div>
 
       <p className="message">
-        On December 7th, we will be hosting a #webinar that will introduce you
-        to #SQL! Are you ready? 🚀
+        {{ tweet.message }}
       </p>
 
       <div className="actions">
@@ -33,6 +32,17 @@
     <i class="fas fa-ellipsis-h"></i>
   </div>
 </template>
+
+
+
+<script setup>
+const props = defineProps(["tweet"]);
+
+</script>
+
+
+
+
 
 <style scoped>
 a {

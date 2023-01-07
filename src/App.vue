@@ -1,16 +1,18 @@
 <template>
-  <div class="app">
-    <Tweet />
+  <div class="app" >
+    <Tweet v-for="tweet in tweets" :tweet="tweet"/>
+   
   </div>
 </template>
 
-<script>
+<script setup>
 
 import Tweet from './components/Tweet.vue';
+import {ref} from "vue";
 
-export default {
-    data: () => ({
-        tweets: [
+
+
+  const tweets = ref ([
             {
                 user: {
                     name: "Thoughts of Dog®",
@@ -38,10 +40,8 @@ export default {
                 timestamp: "3h ago",
                 message: "here is what. i plan to accomplish today: \n\n2. bark loudly. but at nothing \n7. lose my ball under the couch\n7b. politely ask the human. to get my ball\n3. immediately lose it again. under the same couch\n4. big nap. you have worked hard\n2. repeat",
             },
-        ]
-    }),
-    components: { Tweet }
-}
+        ])
+    
 </script>
 
 <style>
